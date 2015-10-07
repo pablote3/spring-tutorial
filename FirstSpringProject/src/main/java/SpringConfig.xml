@@ -3,7 +3,38 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xsi:schemaLocation="http://www.springframework.org/schema/beans
 http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
-<bean id="restaurantBean" class="com.rossotti.spring.Restaurant">
-</bean>
-
+	<!-- bean id="restaurantBean" class="com.rossotti.spring.Restaurant" -->
+	<!-- bean id="restaurantBean" class="com.rossotti.spring.Restaurant" scope = "singleton" lazy-init="true" -->
+	<bean id="restaurantBean" class="com.rossotti.spring.Restaurant" init-method="init" destroy-method="destroy">
+		<!-- property name="welcomeNote" value="Welcome to our Restaurant!"/ -->
+		<property name="welcomeNote" value="${welcomeNote}"/>
+		<!-- constructor-arg ref="teaBean" / -->
+		<!-- property name="hotDrink" ref="teaBean"/ -->
+		
+		<!--  property name="restaurantWaitersList">
+			<list>
+				<value>Mr. ABC</value>
+				<value>Mr. BCD</value>
+				<value>Mr. CDE</value>
+				<value>Mr. DEF</value>
+			</list>
+		</property -->
+	</bean>
+	
+	<bean id="teaBean" class="com.rossotti.spring.Tea" />
+	
+	<!-- bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor" / -->
+	
+	<bean class="com.rossotti.spring.DemoBeanPostProcessor1" />
+	<bean class="com.rossotti.spring.DemoBeanPostProcessor2" />
+	
+	<!-- bean class="com.rossotti.spring.DemoBeanFactoryPostProcessor" / -->
+	
+	<bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<value>classpath:spring.properties</value>
+		</property>	
+	</bean>
+	
 </beans>
