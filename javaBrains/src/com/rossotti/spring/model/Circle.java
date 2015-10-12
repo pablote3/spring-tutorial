@@ -16,6 +16,9 @@ public class Circle {
 	public void setName(String name) {
 		this.name = name;
 	}
+	
+	public Circle() {
+	}
 
 	public Circle(int circleId, String name) {
 		setId(circleId);
