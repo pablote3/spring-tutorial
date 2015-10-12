@@ -19,7 +19,7 @@ import org.springframework.stereotype.Component;
 import com.rossotti.spring.model.Circle;
 
 @Component
-public class JdbcDaoImpl {
+public class JdbcDaoImplOld {
 	@Autowired
 	private DataSource dataSource;
 	private JdbcTemplate jdbcTemplate;
@@ -105,7 +105,6 @@ public class JdbcDaoImpl {
 	}
 	@Autowired
 	public void setDataSource(DataSource dataSource) {
-		//initializes jdbc templates with datasource
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
 		this.namedParameterJdbcTemplate = new NamedParameterJdbcTemplate(dataSource);
 	}

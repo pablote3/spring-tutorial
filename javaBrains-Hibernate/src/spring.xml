@@ -16,4 +16,8 @@
 		<property name="password" value="root" />
 	</bean>
 	
+	<bean id="jdbcDaoImpl" class="com.rossotti.spring.dao.JdbcDaoImpl">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+	
 </beans>

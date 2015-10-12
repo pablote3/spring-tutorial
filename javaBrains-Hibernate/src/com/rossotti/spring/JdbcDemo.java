@@ -4,13 +4,14 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.rossotti.spring.dao.JdbcDaoImpl;
+import com.rossotti.spring.dao.JdbcDaoImplOld;
 import com.rossotti.spring.model.Circle;
 
 public class JdbcDemo {
 
 	public static void main(String[] args) {
 		ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
-		JdbcDaoImpl dao = context.getBean("jdbcDaoImpl", JdbcDaoImpl.class);
+//		JdbcDaoImplOld dao = context.getBean("jdbcDaoImplOld", JdbcDaoImplOld.class);
 		
 //		Circle circle = dao.getCircle(1);
 //		System.out.println(circle.getName());
@@ -21,8 +22,10 @@ public class JdbcDemo {
 		
 //		System.out.println(dao.getCircleForId(1).getName());
 
-		dao.insertCircle(new Circle(5, "Fifth Circle"));
-		System.out.println(dao.getAllCircles().size());
+//		dao.insertCircle(new Circle(5, "Fifth Circle"));
+		
+		JdbcDaoImpl dao = context.getBean("jdbcDaoImpl", JdbcDaoImpl.class);
+		System.out.println(dao.getCircleCount());
 		
 //		dao.createTriangleTable();
 		
