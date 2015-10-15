@@ -4,8 +4,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-import com.rossotti.dto.Address;
 import com.rossotti.dto.UserDetails;
+import com.rossotti.dto.Vehicle;
 
 public class HibernateTest {
 
@@ -13,38 +13,24 @@ public class HibernateTest {
 		UserDetails user = new UserDetails();
 		user.setUserName("First User");
 		
-		UserDetails user2 = new UserDetails();
-		user2.setUserName("Second User");
+		Vehicle vehicle1 = new Vehicle();
+		vehicle1.setVehicleName("Car");
 		
-		Address addr1 = new Address();
-		addr1.setStreet("Street 1");
-		addr1.setCity("City 1");
-		addr1.setState("State 1");
-		addr1.setZipCode("Zip Code 1");
+		Vehicle vehicle2 = new Vehicle();
+		vehicle2.setVehicleName("Jeep");
 		
-		Address addr2 = new Address();
-		addr2.setStreet("Street 2");
-		addr2.setCity("City 2");
-		addr2.setState("State 2");
-		addr2.setZipCode("Zip Code 2");
-		
-		user.getListOfAddresses().add(addr1);
-		user.getListOfAddresses().add(addr2);
+		user.getVehicle().add(vehicle1);
+		user.getVehicle().add(vehicle2);
+		vehicle1.setUser(user);
+		vehicle2.setUser(user);
 		
 		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
 		session.save(user);
-		session.save(user2);
+		session.save(vehicle1);
+		session.save(vehicle2);
 		session.getTransaction().commit();
 		session.close();
-		
-		user = null;
-		
-		session = sessionFactory.openSession();
-//		session.beginTransaction();
-		user = (UserDetails)session.get(UserDetails.class, 1);
-//		System.out.println("User Name retrieved is " + user.getUserName());
-		
 	}
 }
