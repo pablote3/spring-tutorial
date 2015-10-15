@@ -36,7 +36,7 @@
 
         <!-- Names the annotated entity class -->
         <mapping class="com.rossotti.dto.UserDetails"/>
-        
+        <mapping class="com.rossotti.dto.Vehicle"/>
 
     </session-factory>
 
