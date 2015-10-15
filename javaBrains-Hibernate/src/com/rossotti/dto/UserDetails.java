@@ -7,8 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -17,8 +15,7 @@ import javax.persistence.Table;
 public class UserDetails {
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)
 	private int userId;
-	private String userName;
-	
+	private String userName;	
 	@OneToMany(mappedBy="user")
 	private Collection<Vehicle> vehicle = new ArrayList<Vehicle>();
 	
