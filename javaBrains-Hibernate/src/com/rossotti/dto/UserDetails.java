@@ -30,8 +30,8 @@ public class UserDetails {
 	@JoinTable (name="USER_ADDRESS", 
 				joinColumns=@JoinColumn(name="USER_ID")
 	)
-//	@GenericGenerator(name="key-gen", strategy="increment")
-//	@CollectionId(columns = { @Column(name="ADDRESS_ID") }, generator="key-gen", type = @Type(type="long"))
+	@GenericGenerator(name="key-gen", strategy="increment")
+	@CollectionId(columns = { @Column(name="ADDRESS_ID") }, generator="key-gen", type = @Type(type="long"))
 	private Collection<Address> listOfAddresses = new ArrayList<Address>();
 	
 	public int getUserId() {
