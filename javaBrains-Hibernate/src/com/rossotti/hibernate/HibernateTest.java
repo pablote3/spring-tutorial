@@ -33,18 +33,22 @@ public class HibernateTest {
 //		Criteria criteria = session.createCriteria(UserDetails.class);
 //		criteria.add(Restrictions.eq("userName", "User2"));	
 
-		Criteria criteria = session.createCriteria(UserDetails.class)
-									.setProjection(Projections.property("userId"))
-									.addOrder(Order.asc("userId"));
+//		Criteria criteria = session.createCriteria(UserDetails.class)
+//									.setProjection(Projections.property("userId"))
+//									.addOrder(Order.asc("userId"));
 		
-		List<UserDetails> users = (List<UserDetails>)criteria.list();
+//		List<UserDetails> users = (List<UserDetails>)criteria.list();
+
+		UserDetails user = (UserDetails)session.get(UserDetails.class, 1);
+		
+		UserDetails user2 = (UserDetails)session.get(UserDetails.class, 1);
 		
 		session.getTransaction().commit();
 		session.close();
 		
-		for (UserDetails u : users) {
-			System.out.println(u.getUserName());
-		}
-		System.out.println("Size = " + users.size());
+//		for (UserDetails u : users) {
+//			System.out.println(u.getUserName());
+//		}
+//		System.out.println("Size = " + users.size());
 	}
 }
