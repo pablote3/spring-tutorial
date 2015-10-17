@@ -1,35 +1,35 @@
 package com.rossotti.hibernate;
 
+import java.util.List;
+
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-import com.rossotti.dto.FourWheeler;
-import com.rossotti.dto.TwoWheeler;
-import com.rossotti.dto.Vehicle;
+import com.rossotti.dto.UserDetails;
 
 public class HibernateTest {
 
 	public static void main(String[] args) {
 		
-		Vehicle vehicle = new Vehicle();
-		vehicle.setVehicleName("Car");
-		
-		TwoWheeler bike = new TwoWheeler();
-		bike.setVehicleName("Bike");
-		bike.setSteeringHandle("Bike Steering Handle");
-		
-		FourWheeler car = new FourWheeler();
-		car.setVehicleName("Porche");
-		car.setSteeringWheel("Porche Steering Wheel");
-		
 		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+	
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
-		session.save(vehicle);
-		session.save(bike);
-		session.save(car);
+		
+		Query query = session.createQuery("from UserDetails");
+		query.setFirstResult(1);
+		query.setMaxResults(2);
+		List<UserDetails> users = (List<UserDetails>)query.list();
+
+		
 		session.getTransaction().commit();
 		session.close();
+		
+		for (UserDetails u : users) {
+			System.out.println(u.getUserName());
+		}
+		System.out.println("Size = " + users.size());
 	}
 }
