@@ -4,7 +4,6 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.rossotti.spring.dao.JdbcDaoImpl;
-import com.rossotti.spring.dao.JdbcDaoImplOld;
 import com.rossotti.spring.model.Circle;
 
 public class JdbcDemo {
