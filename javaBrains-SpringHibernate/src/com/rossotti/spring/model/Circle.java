@@ -1,6 +1,13 @@
 package com.rossotti.spring.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table (name="circle")
 public class Circle {
+	@Id
 	private int id;
 	private String name;
 	

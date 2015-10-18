@@ -17,7 +17,16 @@
 	</bean>
 	
 	<bean id="jdbcDaoImpl" class="com.rossotti.spring.dao.JdbcDaoImpl">
-		<property name="dataSource" ref="dataSource"></property>
+		<property name="dataSource" ref="dataSource" />
 	</bean>
 	
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="packagesToScan" value="com.rossotti.spring.model" />
+		<property name="hibernateProperties">
+			<props>
+		 		<prop key="dialect">"org.hibernate.dialect.MySQLDialect"</prop>
+		 	</props>
+		</property>
+	</bean>
 </beans>
