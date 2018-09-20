@@ -1,0 +1,7 @@
+logging:
+  level:
+    org.springframework: warn
+    org.springframework.boot: info
+    org.hibernate: info
+
+      

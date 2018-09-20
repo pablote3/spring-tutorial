@@ -1,0 +1,7 @@
+javatunes:
+  url: jdbc:derby://localhost:1527/JavaTunesDB
+  persistenceUnitName: javatunes
+  driverClassName: org.apache.derby.jdbc.ClientDriver
+  dbUserName: guest
+  password: password
+  dialect: org.hibernate.dialect.DerbyTenSevenDialect

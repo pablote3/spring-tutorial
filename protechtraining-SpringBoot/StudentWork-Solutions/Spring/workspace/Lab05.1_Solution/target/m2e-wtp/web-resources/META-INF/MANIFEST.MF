@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: Spring REST
+Implementation-Version: 1.0
+Built-By: yaakov
+Implementation-Vendor-Id: com.javatunes
+Build-Jdk: 1.8.0_45
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/spring-REST
+Created-By: Maven Integration for Eclipse
+
